@@ -1,0 +1,35 @@
+{
+  "name": "encryptonite",
+  "version": "1.0.0",
+  "description": "Password manager app securely stores & manages passwords. It generates unique passwords, auto-fills them & improves security. Saves time & increases productivity with features like password sharing & multi-device sync.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TejeshPalagiri/encryptonite.git"
+  },
+  "keywords": [
+    "password_manager",
+    "vault"
+  ],
+  "author": "TejeshP",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TejeshPalagiri/encryptonite/issues"
+  },
+  "homepage": "https://github.com/TejeshPalagiri/encryptonite#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "helmet": "^6.0.1",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^6.9.0",
+    "redis": "^4.6.4",
+    "validator": "^13.9.0"
+  }
+}
