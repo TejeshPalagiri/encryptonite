@@ -6,6 +6,7 @@ const cors = require("cors");
 const helmet = require("helmet");
 const v1 = require("./routes/v1");
 const cookieParser = require("cookie-parser");
+const { version } = require("./config/config");
 
 const port = process.env.PORT || 4000;
 const app = express();
@@ -16,6 +17,12 @@ app.use(cors());
 app.use(helmet());
 app.use(express.json());
 
+app.get("/", (req, res, next) => {
+  res.status(200).json({
+    success: true,
+    message: "Hey Welcome to encryptonite. Currently running the server on version" + version,
+  });
+});
 app.use("/api/v1", v1);
 
 app.use((req, res, next) => {

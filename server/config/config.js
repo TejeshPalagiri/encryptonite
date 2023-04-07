@@ -7,4 +7,5 @@ module.exports = {
   JWT_ACCESS_TOKEN_EXPIRY: process.env.JWT_ACCESS_TOKEN_EXPIRY,
   JWT_REFRESH_TOKEN_EXPIRY: process.env.JWT_REFRESH_TOKEN_EXPIRY,
   CRYPTO_KEY: process.env.CRYPTO_KEY,
+  version: '1.0.0010701'
 };

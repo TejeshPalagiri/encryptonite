@@ -12,7 +12,7 @@ const isLoggedIn = async (req, res, next) => {
     let refreshToken =
       req.headers["x-header-refreshtoken"] || req.cookies.refreshToken;
     if (!accessToken) {
-      let error = new Error("Un-Autorized Access. Please login again");
+      let error = new Error("Unauthorized Access. Please login again");
       error.status = 401;
       return next(error);
     }
@@ -31,7 +31,7 @@ const isLoggedIn = async (req, res, next) => {
     } catch (error) {
       // First check refresh toiken avaiablity
       if (!refreshToken) {
-        let error = new Error("Un-Autorized Access. Please login again");
+        let error = new Error("Unauthorized Access. Please login again");
         error.status = 401;
         return next(error);
       }

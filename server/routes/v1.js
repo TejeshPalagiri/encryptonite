@@ -2,12 +2,13 @@ const router = require("express").Router();
 const middlewares = require("../middlewares/authenticator");
 const user = require("../controllers/user.controller");
 const credentials = require("../controllers/credentials.controller");
+const { version } = require("../config/config")
 
 // Dummy route
 router.get("/", (req, res, next) => {
   res.status(200).json({
     success: true,
-    message: "Hey Welcome to encryptonite.",
+    message: "Hey Welcome to encryptonite. Currently running the server on version" + version,
   });
 });
 
