@@ -1,0 +1,46 @@
+<!-- <form nz-form [nzLayout]="'inline'" [formGroup]="loginForm" (ngSubmit)="submitForm()">
+    <nz-form-item>
+        <nz-form-control nzErrorTip="Please input your username!">
+            <nz-input-group nzPrefixIcon="user">
+                <input formControlName="userName" nz-input placeholder="Username" />
+            </nz-input-group>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-control nzErrorTip="Please input your Password!">
+            <nz-input-group nzPrefixIcon="lock">
+                <input formControlName="password" nz-input type="password" placeholder="Password" />
+            </nz-input-group>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-control>
+            <button nz-button nzType="primary" [disabled]="!loginForm.valid">Log in</button>
+        </nz-form-control>
+    </nz-form-item>
+</form> -->
+
+<div class="container-fluid login-container">
+    <div class="row w-100 h-100">
+        <div class="col-md-6 col-12 login-img"></div>
+        <div class="col-md-6 col-12 d-flex align-items-center justify-content-center">
+            <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email address</label>
+                    <input type="email" formControlName="email" class="form-control" id="email"
+                        placeholder="name@example.com">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Email address</label>
+                    <input type="password" formControlName="password" class="form-control" id="password"
+                        placeholder="******">
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary">Sign in</button>
+                </div>
+            </form>
+        </div>
+
+
+    </div>
+</div>

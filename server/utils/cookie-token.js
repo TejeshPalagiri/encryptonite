@@ -13,11 +13,10 @@ const cookieToken = async (user, res, refreshToken) => {
   user.salt = undefined;
   user.password = undefined;
 
-  res.cookie("refreshToken", tokens.refreshToken, {
-    httpOnly: true,
-  });
+  res.cookie("refreshToken", tokens.refreshToken);
+  res.cookie("accessToken", tokens.accessToken);
 
-  res.status(200).cookie("accessToken", tokens.accessToken, options).json({
+  res.status(200).json({
     success: true,
     accessToken: tokens.accessToken,
     refreshToken: tokens.refreshToken,

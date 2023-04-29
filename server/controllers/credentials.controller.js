@@ -43,6 +43,7 @@ const createCredentials = async (req, res, next) => {
       error.status = 400;
       throw error;
     }
+    domain_url = domain_url.toLoweCase();
     let masterPassword = await User.getUserHashedPassword(userId);
     let credentials = await Credentials.createCredentials(
       userId,

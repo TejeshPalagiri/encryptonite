@@ -1,0 +1,49 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/ng-zorro-antd/ng-zorro-antd.css";
+
+
+#loaderDiv {
+    width: 100%;
+    position: fixed;
+    height: 100%;
+    top: 0;
+    left: 0;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.5);
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    img {
+        width: 100px;
+        height: 100px;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-drag: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+    }
+}
+// #torchlight {
+//     position: absolute;
+//     width: 200px;
+//     height: 200px;
+//     border-radius: 50%;
+//     box-shadow: 0 0 50px rgba(255, 255, 255, 0.8);
+//     pointer-events: none; /* This allows the mouse to pass through the torchlight div */
+//     z-index: 100; 
+// }
+
+body {
+    // background-image: url("./assets/app-bg.jpg");
+    // background-size: cover; /* or contain */
+    // // background-position: center center;
+    // background-repeat: repeat;
+
+    // color: #fff !important;
+}
+
+.active {
+    color: #4234fe;
+}
