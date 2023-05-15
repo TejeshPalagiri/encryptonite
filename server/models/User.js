@@ -47,7 +47,14 @@ const userSchema = new mongoose.Schema({
   forgotPasswordExpiry: {
     type: Date,
   },
-});
+},
+{
+  timestamps: {
+    createdAt: 'created_at',
+    updatedAt: 'updated_at'
+  }
+}
+);
 
 // Encrypting password before saving
 userSchema.pre("save", function (next) {

@@ -1,0 +1,29 @@
+.menu-container {
+    min-width: 250px;
+    height: 50px;
+    border-radius: 30px;
+    background: #fefbf9;
+    box-shadow: 8px 8px 20px #919090;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    color: #666666;
+    font-size: 30px;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    
+    span {
+        margin: 10px;
+        cursor: pointer;
+
+        :hover {
+            color: #88beff;
+        }
+    }
+}
+
+.active {
+    color: #a9d0ff;
+}

@@ -20,7 +20,7 @@
     </nz-form-item>
 </form> -->
 
-<div class="container-fluid login-container">
+<!-- <div class="container-fluid login-container">
     <div class="row w-100 h-100">
         <div class="col-md-6 col-12 login-img"></div>
         <div class="col-md-6 col-12 d-flex align-items-center justify-content-center">
@@ -43,4 +43,23 @@
 
 
     </div>
+</div> -->
+
+<div class="big-pink-dot"></div>
+<div class="small-black-dot"></div>
+<div class="login-form-container">
+    <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
+        <h3>Sign in.</h3>
+        <button>Continue with Google</button>
+        <button>Continue with Facebook</button>
+
+        <span>or</span>
+        <input type="email" formControlName="email" placeholder="Email" required/>
+        <input type="password" formControlName="password" placeholder="Password" required/>
+
+        <button type="submit" class="sign-in-btn">Sign in</button>
+
+        <p>Don't have an account? <span style="color: #fff; cursor: pointer;">Create Account</span></p>
+        <span style="color: #fff; cursor: pointer;">Forgot Password</span>
+    </form>
 </div>

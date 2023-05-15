@@ -27,6 +27,7 @@ router.post("/credentials", middlewares.isLoggedIn, credentials.createCredential
 router.get("/credentials", middlewares.isLoggedIn, credentials.getAllCredentials)
 router.get("/credentials/:_id", middlewares.isLoggedIn, credentials.getCredentialsById)
 router.put("/credentials/:_id", middlewares.isLoggedIn, credentials.updateCredentials)
+router.delete("/credentials/:_id", middlewares.isLoggedIn, credentials.deleteCredential)
 router.get("/password/:_id", middlewares.isLoggedIn, credentials.retrievePlainPassword)
 
 

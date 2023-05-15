@@ -26,6 +26,12 @@ import { CredentialsComponent } from './credentials/credentials.component';
 import { RouteGuard } from './route.guard';
 import { HttpInterceptorService } from './http-interceptor.service';
 import { CookieService } from 'ngx-cookie-service';
+import { DashbaordComponent } from './dashbaord/dashbaord.component';
+import { NzModalModule } from "ng-zorro-antd/modal";
+import { NzFormModule } from "ng-zorro-antd/form";
+import { NzIconModule } from "ng-zorro-antd/icon";
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzButtonModule } from 'ng-zorro-antd/button';
 
 registerLocaleData(en);
 
@@ -35,6 +41,7 @@ registerLocaleData(en);
     LoginComponent,
     HeaderComponent,
     CredentialsComponent,
+    DashbaordComponent
   ],
   imports: [
     ZoroModule,
@@ -50,6 +57,11 @@ registerLocaleData(en);
     ScrollingModule,
     BrowserAnimationsModule,
     IconsProviderModule,
+    NzModalModule,
+    NzFormModule,
+    NzIconModule,
+    NzInputModule,
+    NzButtonModule
   ],
   providers: [
     RouteGuard,

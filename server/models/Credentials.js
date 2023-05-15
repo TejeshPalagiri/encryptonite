@@ -44,7 +44,21 @@ const credentialSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
-});
+  status: {
+    type: Boolean,
+    default: true
+  },
+  last_accessed_at: {
+    type: Date
+  }
+},
+{
+  timestamps: {
+    createdAt: 'created_at',
+    updatedAt: 'updated_at'
+  }
+}
+);
 
 credentialSchema.methods.encryptPassword = function (salt) {
   this.password = encryptWithSalt(this.password, salt);

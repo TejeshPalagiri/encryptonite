@@ -1,0 +1,147 @@
+.dashbaord-main-container {
+
+    width: 100vw;
+    height: 99vh;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .user-details-container {
+        width: 25%;
+        height: 100%;
+        background: #eac1eb;
+        color: #000;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: column;
+        border-radius: 10px;
+
+        h3 {
+            font-size: 30px;
+            font-weight: bolder;
+            // margin-top: 30px;
+        }
+
+        .image-container {
+            position: relative;
+            display: inline-block;
+            img {
+                border-radius: 20px;
+                // margin-top: 15px;
+                width: 150px;
+                height: 150px;
+                object-fit: cover;
+                display: block;
+            }
+            .star-content {
+                position: absolute;
+                top: -12px;
+                right: -25px;
+                padding: 10px;
+                background-color: rgba(0, 0, 0, 0.5);
+                color: #fff;
+                font-size: 40px;
+                background: none;
+            }
+        }
+
+        h4 {
+            // margin-top: 10px;
+            font-size: 25px;
+            font-weight: bolder;
+        }
+
+        .stats-container {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 10px 30px;
+
+            .each-container {
+                width: 46%;
+                background: #f1d3f0;
+                border-radius: 15px;
+                padding: 10px 20px;
+                margin: 5px;
+                
+                span {
+                    font-size: 12px;
+                    color: #8e8e92;;
+                }
+                p {
+                    font-size: 30px;
+                    font-weight: bold;
+                    margin: 0;
+                    padding: 0;
+                }
+            }
+        }
+        .generate-random-password {
+            background: #fff;
+            width: 80%;
+            border-radius: 20px;
+            padding: 10px 26px;
+            cursor: pointer;
+            background-image: url('../../assets/generate_new_password.svg');
+            background-position: center right;
+            background-size: contain;
+            background-repeat: no-repeat;
+            
+            p {
+                font-size: 23px;
+                font-weight: bold;
+            }
+        }
+    }
+
+    .partition-div {
+        width: 75%;
+        height: 100%;
+        margin-left: 5px;
+        .title-and-search {
+            width: 100%;
+            height: 25%;
+            border-radius: 20px;
+        }
+        .bottom-right-widgets {
+            width: 100%;
+            height: 75%;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+    
+            .widget {
+                height: 50%;
+                border-radius: 20px;
+                background: #343946;
+                margin: 5px 10px 5px 5px;
+            }
+    
+            .article {
+                width: 65%;
+                background: #fff;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                padding: 10px;
+                color: #000;
+                margin-top: 0px;
+            }
+            .login-stats {
+                width: 30%;
+                margin-top: 0px;
+            }
+            .health {
+                width: 30%;
+            }
+            .recently-added {
+                width: 65%;
+                background: #eac1eb;
+                color: #000;
+            }
+        }
+    }
+}

@@ -7,7 +7,7 @@ const getAllCredentials = async (req, res, next) => {
     let credentials = await Credentials.getAllCredentials(userId, req);
 
     res.status(200).json({
-      sccuess: true,
+      success: true,
       data: credentials,
     });
   } catch (error) {
@@ -23,7 +23,7 @@ const getCredentialsById = async (req, res, next) => {
     let credentials = await Credentials.getCredentialsById(userId, _id);
 
     res.status(200).json({
-      sccuess: true,
+      success: true,
       data: credentials,
     });
   } catch (error) {
@@ -43,7 +43,7 @@ const createCredentials = async (req, res, next) => {
       error.status = 400;
       throw error;
     }
-    domain_url = domain_url.toLoweCase();
+    domain_url = domain_url.toLowerCase();
     let masterPassword = await User.getUserHashedPassword(userId);
     let credentials = await Credentials.createCredentials(
       userId,
@@ -52,7 +52,7 @@ const createCredentials = async (req, res, next) => {
     );
 
     res.status(200).json({
-      sccuess: true,
+      success: true,
       data: credentials,
     });
   } catch (error) {
@@ -82,7 +82,7 @@ const updateCredentials = async (req, res, next) => {
     );
 
     res.status(200).json({
-      sccuess: true,
+      success: true,
       data: credentials,
     });
   } catch (error) {
@@ -104,8 +104,26 @@ const retrievePlainPassword = async (req, res, next) => {
     );
 
     res.status(200).json({
-      sccuess: true,
+      success: true,
       data: password,
+      last_accessed_at: Date.now()
+    });
+  } catch (error) {
+    console.error(error);
+    next(error);
+  }
+};
+
+const deleteCredential = async (req, res, next) => {
+  try {
+    let userId = req.user.user_id;
+    let { _id } = req.params;
+    let password = await Credentials.deleteCredential(userId, _id)
+
+    res.status(200).json({
+      success: true,
+      data: password,
+      message: 'Deleted credential successfully.'
     });
   } catch (error) {
     console.error(error);
@@ -119,4 +137,5 @@ module.exports = {
   createCredentials,
   updateCredentials,
   retrievePlainPassword,
+  deleteCredential
 };

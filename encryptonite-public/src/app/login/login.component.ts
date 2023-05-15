@@ -10,6 +10,7 @@ import {
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../authentication.service';
 import { HttpClientService } from '../http-client.service';
+import { SharedService } from '../shared.service';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +23,8 @@ export class LoginComponent implements OnInit {
     private _formBuilder: FormBuilder,
     private _httpService: HttpClientService,
     private _router: Router,
-    private _authenticationService: AuthenticationService
+    private _authenticationService: AuthenticationService,
+    private _sharedService: SharedService
   ) {
     this.loginForm = this._formBuilder.group({
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -47,9 +49,11 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('userName', user.name);
           localStorage.setItem('userEmail', user.email);
           localStorage.setItem('userStatus', user.status);
-          this._router.navigateByUrl('/credentials');
+          this._router.navigateByUrl('/dashboard');
         }
       });
+    } else {
+      this._sharedService.openNotification('info', 'Info', 'Please fill all the required fields.')
     }
   }
 }

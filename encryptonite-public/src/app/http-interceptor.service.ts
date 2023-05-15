@@ -12,7 +12,7 @@ import { map, catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { LoaderService } from './loader.service';
 import { AuthenticationService } from './authentication.service';
-import { NzNotificationService } from 'ng-zorro-antd/notification';
+import { SharedService } from './shared.service';
 
 @Injectable({
   providedIn: 'root',
@@ -23,7 +23,7 @@ export class HttpInterceptorService implements HttpInterceptor {
     private _router: Router,
     private _loader: LoaderService,
     private _autenticationService: AuthenticationService,
-    private _notification: NzNotificationService
+    private _sharedService: SharedService
   ) {}
 
   intercept(
@@ -109,13 +109,17 @@ export class HttpInterceptorService implements HttpInterceptor {
             request.headers.append('x-header-refreshtoken', refreshToken);
             return this.intercept(request, next);
           } else {
-            this._notification.error('Error', error.error.message);
+            this._sharedService.openNotification('info', 'Error', error.error.message)
             this._router.navigateByUrl('/login');
             this._autenticationService.clearAllCookies();
             localStorage.clear();
           }
         } else if (error.status === 400) {
-          this._notification.error('Error', error.error.message);
+          this._sharedService.openNotification('warning', 'Error', error.error.message)
+        } else if (error.status === 500) {
+          this._sharedService.openNotification('error', 'Error', error.error.message)
+        } else if (error.status === 0) {
+          this._sharedService.openNotification('error', 'Error', "No Response from server (or) server not connected.")
         } else {
           this._loader.changeLoadingVisibility(false);
         }

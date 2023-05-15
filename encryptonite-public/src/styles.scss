@@ -1,6 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
-@import "../node_modules/ng-zorro-antd/ng-zorro-antd.css";
-
+// @import "../node_modules/ng-zorro-antd/ng-zorro-antd.css";
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;400&display=swap');
+body {
+    background: #181820 !important;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #fff;
+}
 
 #loaderDiv {
     width: 100%;
@@ -35,15 +40,42 @@
 //     z-index: 100; 
 // }
 
-body {
-    // background-image: url("./assets/app-bg.jpg");
-    // background-size: cover; /* or contain */
-    // // background-position: center center;
-    // background-repeat: repeat;
-
-    // color: #fff !important;
+.ellipsis {
+    text-overflow: ellipsis;
+  
+    /* Required for text-overflow to do anything */
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .active {
     color: #4234fe;
+}
+
+.w-100 {
+    width: 100% !important;
+}
+
+.w-50 {
+    width: 50% !important;
+}
+
+.w-25 {
+    width: 25% !important;
+}
+
+.w-20 {
+    width: 20% !important;
+}
+
+.w-15 {
+    width: 15% !important;
+}
+
+.w-10 {
+    width: 10% !important;
+}
+
+.w-5 {
+    width: 5% !important;
 }

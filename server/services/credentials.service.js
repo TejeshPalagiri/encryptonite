@@ -18,13 +18,16 @@ const getAllCredentials = async (userId, req) => {
         name: 1,
         user_name: 1,
         updated_at: 1,
-        domain_url: 1
+        domain_url: 1,
+        last_accessed_at: 1,
+        status: 1
       };
       if (!_.isEmpty(req)) {
         if (!_.isEmpty(search)) {
           credentials = await Credentials.find(
             {
               created_by: userId,
+              is_deleted: false,
               $or: [
                 {
                   name: { $regex: search, $options: "i" },
@@ -38,7 +41,7 @@ const getAllCredentials = async (userId, req) => {
             .skip(skip)
             .limit(limit);
         } else {
-          credentials = await Credentials.find({ created_by: userId }, project)
+          credentials = await Credentials.find({ created_by: userId, is_deleted: false }, project)
             .skip(skip)
             .limit(limit);
         }
@@ -65,7 +68,9 @@ const getCredentialsById = async (userId, _id) => {
           name: 1,
           user_name: 1,
           updated_at: 1,
-          domain_url: 1
+          domain_url: 1,
+          status: 1,
+          last_accessed_at: 1
         }
       );
       resolve(credentials);
@@ -105,15 +110,17 @@ const updateCredentials = async (userId, masterPassword, payload, _id) => {
       }
       _.forEach(payload, (value, key) => {
         if (key == "password") {
-          credentials.password = value;
-          credentials.encryptPassword(masterPassword);
+          if(value && value.length) {
+            credentials.password = value;
+            credentials.encryptPassword(masterPassword);
+          }
         } else {
           credentials[`${key}`] = value;
         }
       });
       credentials.updated_at = Date.now();
       credentials.updated_by = userId;
-
+      console.log("updatede credeential", credentials)
       await credentials.save();
       resolve(credentials);
     } catch (error) {
@@ -131,6 +138,7 @@ const retrievePlainPassword = async (userId, _id, masterPassword) => {
       });
       let password = credentials.decryptPassword(masterPassword);
       credentials.retrieved_count += 1;
+      credentials.last_accessed_at = Date.now();
       await credentials.save();
 
       resolve(password);
@@ -166,6 +174,25 @@ const bulkUpdateCredentials = async (
   });
 };
 
+const deleteCredential = async (
+  userId,
+  _id
+) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      let credentials = await Credentials.findById({ _id: _id });
+      credentials.is_deleted = true;
+      credentials.updated_by = userId;
+      await credentials.save();
+      resolve(credentials);
+    } catch (error) {
+      console.error(error);
+      reject(error);
+    }
+  });
+};
+
+
 module.exports = {
   getAllCredentials,
   getCredentialsById,
@@ -173,4 +200,5 @@ module.exports = {
   updateCredentials,
   retrievePlainPassword,
   bulkUpdateCredentials,
+  deleteCredential
 };
