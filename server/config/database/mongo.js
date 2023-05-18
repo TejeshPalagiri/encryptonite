@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
-const config = require("../config");
 
-const connectionUri = config.MONGODB_URI;
+const connectionUri = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOST}/${process.env.MONGO_DB_NAME}?retryWrites=true&w=majority`;
 
 mongoose.connect(connectionUri, {
   useNewUrlParser: true,
