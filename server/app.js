@@ -1,6 +1,7 @@
 require("dotenv").config();
 require("./config/database/mongo");
 require("./config/database/redis").connectRedis();
+const path = require('path');
 const express = require("express");
 const cors = require("cors");
 const helmet = require("helmet");
@@ -16,8 +17,9 @@ app.use(cookieParser());
 app.use(cors());
 app.use(helmet());
 app.use(express.json());
+app.use(express.static(path.join(__dirname, '../encryptonite-public/dist')));
 
-app.use('/', express.static('./encryptonite-public/dist'))
+app.use('/', express.static('../encryptonite-public/dist'))
 
 app.get("/", (req, res, next) => {
   res.status(200).json({

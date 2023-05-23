@@ -87,6 +87,7 @@ const createCredentials = async (userId, masterPassword, payload) => {
         name: payload.name,
         domain_url: payload.domain_url,
         password: payload.password,
+        user_name: payload.user_name,
         created_by: userId,
         updated_by: userId,
       });
