@@ -12,7 +12,10 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}/server/app.js",
-            "runtimeVersion": "16.18.0"
+            "runtimeVersion": "16.18.0",
+            "env": {
+                "NODE_ENV": "production"
+            }
         }
     ]
 }
