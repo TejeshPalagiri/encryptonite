@@ -2,13 +2,13 @@ const fs = require("fs");
 const path = require("path");
 const dotenv = require('dotenv');
 
-
-if (fs.existsSync(path.join(__dirname, "../.env"))) {
+// dotenv.config();
+if (fs.existsSync(path.join(__dirname, "../.env-1"))) {
   console.debug("Using .env file to supply config environment variables");
   dotenv.config({ path: path.join(__dirname, "../.env") });
 } else {
   console.debug("Using .env.example file to supply config environment variables");
-  dotenv.config({ path: "../../.env.example" });  // you can delete this after you create your own .env file!
+  dotenv.config();  // you can delete this after you create your own .env file!
 }
 
 module.exports = {
