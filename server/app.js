@@ -1,4 +1,4 @@
-require("dotenv").config();
+
 require("./config/database/mongo");
 require("./config/database/redis").connectRedis();
 const path = require('path');
