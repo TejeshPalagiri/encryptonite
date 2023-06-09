@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  api: "http://localhost:5200/api/v1"
+  api: "https://encryptonite.up.railway.app/api/v1"
 };
