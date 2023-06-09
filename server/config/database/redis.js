@@ -1,16 +1,15 @@
 const redis = require("redis");
 let client;
 
-if(process.env.NODE_ENV == "production") {
-  console.log(process.env.REDIS_PASSWORD)
+console.log("Connecting to Redis", process.env.REDIS_HOST, process.env.REDIS_HOST, process.env.REDIS_PORT)
+// if(process.env.NODE_ENV == "production") {
   client = redis.createClient({
     host: process.env.REDIS_HOST,
-    port: process.env.REDIS_PORT,
-    password: process.env.REDIS_PASSWORD,
+    port: process.env.REDIS_PORT
   })
-} else {
-  client = redis.createClient({});
-}
+// } else {
+//   client = redis.createClient({});
+// }
 module.exports = {
   client: client,
   connectRedis: async () => {
