@@ -3,14 +3,13 @@ const path = require("path");
 const dotenv = require('dotenv');
 
 // dotenv.config();
-if (fs.existsSync(path.join(__dirname, "../.env-1"))) {
+if (fs.existsSync(path.join(__dirname, "../.env"))) {
   console.debug("Using .env file to supply config environment variables");
   dotenv.config({ path: path.join(__dirname, "../.env") });
 } else {
   console.debug("Using .env.example file to supply config environment variables");
   dotenv.config();  // you can delete this after you create your own .env file!
 }
-console.log(process.env)
 
 module.exports = {
   PORT: process.env.PORT || 4000,
