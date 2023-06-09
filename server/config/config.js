@@ -10,6 +10,7 @@ if (fs.existsSync(path.join(__dirname, "../.env-1"))) {
   console.debug("Using .env.example file to supply config environment variables");
   dotenv.config();  // you can delete this after you create your own .env file!
 }
+console.log(process.env)
 
 module.exports = {
   PORT: process.env.PORT || 4000,
