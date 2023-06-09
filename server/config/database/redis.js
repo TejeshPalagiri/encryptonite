@@ -9,8 +9,8 @@ if(process.env.ENVIRONMENT == "production") {
       host: config.REDIS_HOST,
       port: config.REDIS_PORT
     },
-    username: '',
-    password: ''
+    username: config.REDIS_USER,
+    password: config.REDIS_PASSWORD
   })
 } else {
   client = redis.createClient();
